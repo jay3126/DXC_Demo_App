@@ -8,11 +8,8 @@ class User < ApplicationRecord
          :omniauthable,
          :omniauth_providers => [:twitter, :facebook, :linkedin, :google_oauth2, *(:developer if Rails.env.development?)]
 
+  # This method will be adding the user to database who are signing in using social media accounts.
   def self.from_omniauth(auth)
-    # where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    #   user.email = auth.info.email
-    #   user.password = SecureRandom.base64(15)
-    # end
     user = find_or_create_by(uid: auth.id, provider: auth.provider)
     user.email = auth.info.email
     user.password = SecureRandom.base64(15)
