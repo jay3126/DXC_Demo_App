@@ -1,0 +1,11 @@
+<div class="container hr">
+  <h1>Editing Item</h1>
+  <p></p>
+  <p></p>
+  <%= link_to 'Show', @item, class: "btn btn-primary" %> |
+  <%= link_to 'Back', items_path, class: "btn btn-primary" %>
+  <p></p>
+  <p></p>
+
+  <%= render 'form', item: @item %>
+</div>

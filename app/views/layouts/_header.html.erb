@@ -1,0 +1,21 @@
+<div class="container">
+  <div style="margin-top: 10px;">
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+    <% end %>
+  </div>
+  <div class="header_container">
+    <% if current_user %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+      <%= link_to 'New Person', new_person_path, class: "btn btn-primary" %>
+      <%= link_to "People List", root_path, class: "btn btn-primary" %>
+      <%= link_to "Items List", items_path, class: "btn btn-primary" %>
+      <%= link_to "LIVE Messages", messages_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<%= form_with(model: items_import, local: true) do |form| %>
+  <% if items_import.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(items_import.errors.count, "error") %> prohibited this items_import from being saved:</h2>
+
+      <ul>
+        <% items_import.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
