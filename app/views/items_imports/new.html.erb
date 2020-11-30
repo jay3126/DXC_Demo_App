@@ -1,22 +1,20 @@
 <div class="container hr">
-  <h1>Import Items From Excel</h1>
+  <h1><%= t('items_imports.import_items_from_excel') %></h1>
 
   <p>
-  Note: Only import spreadsheets that were previously downloaded from this
-    application.
+    <%= t('items_imports.note_only_spreadsheets') %>
   </p>
 
-  <h3>Requirements</h3>
+  <h3><%= t('items_imports.requirements') %></h3>
   <ul>
-    <li>Here you could list the validations you have in place for your model</li>
-    <li>That way your user has a better chance of successful import</li>
+    <li><%= t("items_imports.here_you_could") %></li>
+    <li><%= t("items_imports.that_way_your_user") %></li>
   </ul>
 
-  <h5>Select File</h5>
+  <h5><%= t('items_imports.select_file') %></h5>
   <%= form_for @items_import do |f| %>
     <% if @items_import.errors.any? %>
-      <%= pluralize(@items_import.errors.count, "error") %> prevented us from
-      importing your spreadsheet. Please update your spreadsheet and try agin.
+      <%= pluralize(@items_import.errors.count, "error") %> <%= t('items_imports.errors.prevented_us') %>
       <ul>
         <% @items_import.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -25,7 +23,7 @@
     <% end %>
 
     <%= f.file_field :file, required: true %>
-    <%= f.submit "Import File", class: "btn btn-primary" %>
-    <%= link_to 'Download Sample Excel', download_sample_excel_path, class: "btn btn-primary" %>
+    <%= f.submit t("items_import.import_file"), class: "btn btn-primary" %>
+    <%= link_to t('items_imports.download_sample_excel'), download_sample_excel_path, class: "btn btn-primary" %>
   <% end %>
 </div>

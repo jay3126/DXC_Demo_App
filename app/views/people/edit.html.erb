@@ -1,8 +1,8 @@
 <div class="container hr">
-  <h1>Editing Person</h1>
+  <h1><%= t('people.editing_person') %></h1>
   <p></p>
-  <%= link_to 'Show', @person, class: "btn btn-primary" %> |
-  <%= link_to 'Back', people_path, class: "btn btn-primary"  %>
+  <%= link_to t('global.show'), @person, class: "btn btn-primary" %> |
+  <%= link_to t('global.back'), people_path, class: "btn btn-primary"  %>
   <p></p>
   <%= render 'form', person: @person %>
 </div>

@@ -2,8 +2,8 @@
   <%= javascript_pack_tag 'people' %>
 
   <div class="people_new">
-    <h1>New Person</h1>
-    <%= link_to 'Back', people_path, class: "btn btn-primary" %>
+    <h1><%= t('people.new_person') %></h1>
+    <%= link_to t('global.back'), people_path, class: "btn btn-primary" %>
     <p></p>
     <%= render 'form', person: @person %>
   </div>

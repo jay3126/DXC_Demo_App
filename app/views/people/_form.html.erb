@@ -1,7 +1,7 @@
 <%= form_with(model: person, local: true) do |form| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+      <h2><%= pluralize(person.errors.count, "error") %> <%= t('people.errors.prohibited_this_person') %></h2>
 
       <ul>
         <% person.errors.full_messages.each do |message| %>
@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :first_name %>
+    <%= form.label t('people.first_name') %>
     <%= form.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
+    <%= form.label t('people.last_name') %>
     <%= form.text_field :last_name  %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
+    <%= form.label t('people.email') %>
     <%= form.text_field :email  %>
   </div>
 
   <div class="field">
-    <%= form.label :age %>
+    <%= form.label t('people.age') %>
     <%= form.number_field :age  %>
   </div>
 
   <div class="field">
-    <%= form.label :gender %>
+    <%= form.label t('people.gender') %>
     <%= form.text_field :gender  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t('global.forms.submit'), class: "btn btn-primary" %>
   </div>
 <% end %>

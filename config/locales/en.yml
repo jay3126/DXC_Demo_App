@@ -30,4 +30,76 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  header:
+    dxc_first_rails_application: "DXC First Rails Application"
+    english: "English"
+    new_person: "New Person"
+    people_list: "People List"
+    items_list: "Items List"
+    live_messages: "LIVE Messages"
+    home: "Home"
+    sign_out: "Sign Out"
+    sign_in: "Sign In"
+    sign_up: "Sign Up"
+    russian: "Russian"
+
+  items:
+    items: "Items"
+    download_as_excel: "Download as Excel"
+    download_as_csv: "Download as CSV"
+    download_as_pdf: "Download as PDF"
+    upload_from_excel: "Upload From Excel"
+    new_item: "New Item"
+    name: "Name"
+    quantity: "Quantity"
+    editing_item: "Editing Item"
+    forms:
+      name: :name
+      quantity: :quantity
+
+  global:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Destroy"
+    are_you_sure: "Are you sure?"
+    back: "Back"
+    prohibited_this_item_from_being_saved: "prohibited this item from being saved:"
+    forms:
+      submit: "Submit"
+
+  items_imports:
+    import_items_from_excel: "Import Items From Excel"
+    note_only_spreadsheets: "Note: Only import spreadsheets that were previously downloaded from this application."
+    requirements: "Requirements"
+    here_you_could: "Here you could list the validations you have in place for your model"
+    that_way_your_user: "That way your user has a better chance of successful import"
+    select_file: "Select File"
+    import_file: "Import File"
+    download_sample_excel: "Download Sample Excel"
+    file: "File"
+    errors:
+      prevented_us: "prevented us from
+      importing your spreadsheet. Please update your spreadsheet and try agin."
+
+  people:
+    people: "People"
+    first_name: "first_name"
+    last_name: "last_name"
+    email: "email"
+    age: "age"
+    gender: "gender"
+    editing_person: "Editing Person"
+    new_person: "New Person"
+    showing_the_details: "Showing the details of:"
+    errors:
+      prohibited_this_person: "prohibited this person from being saved:"
+    people_listing:
+      first_name: "First Name"
+      last_name: "Last Name"
+      email: "Email"
+      age: "Age"
+      gender: "Gender"
+
+  search:
+    search: "Search"
+    search_for: "Search for:"

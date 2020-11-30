@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 <div class="container hr">
-  <h1>Items</h1>
+  <h1><%= t("items.items") %></h1>
 
   <% if @items.size > 0 %>
-    <%= link_to 'Download as Excel', items_path(format: :xlsx), class: "btn btn-primary" %>
-    <%= link_to 'Download as CSV', items_path(format: :csv), class: "btn btn-primary" %>
-    <%= link_to 'Download as PDF', items_path(format: :pdf), class: "btn btn-primary" %>
+    <%= link_to t('items.download_as_excel'), items_path(format: :xlsx), class: "btn btn-primary" %>
+    <%= link_to t('items.download_as_csv'), items_path(format: :csv), class: "btn btn-primary" %>
+    <%= link_to t('items.download_as_pdf'), items_path(format: :pdf), class: "btn btn-primary" %>
   <% end %>
-  <%= link_to 'Upload from Excel', new_items_import_path, class: "btn btn-primary" %>
-  <%= link_to 'New Item', new_item_path, class: "btn btn-primary" %>
+  <%= link_to t('items.upload_from_excel'), new_items_import_path, class: "btn btn-primary" %>
+  <%= link_to t('items.new_item'), new_item_path, class: "btn btn-primary" %>
 
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Quantity</th>
+        <th><%= t('items.name') %></th>
+        <th><%= t('items.quantity') %></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -24,9 +24,9 @@
         <tr>
           <td><%= item.name %></td>
           <td><%= item.quantity %></td>
-          <td><%= link_to 'Show', item, class: "btn btn-primary" %></td>
-          <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-primary" %></td>
-          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><%= link_to t('global.show'), item, class: "btn btn-primary" %></td>
+          <td><%= link_to t('global.edit'), edit_item_path(item), class: "btn btn-primary" %></td>
+          <td><%= link_to t('global.destroy'), item, method: :delete, data: { confirm: t('global.are_you_sure') }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
