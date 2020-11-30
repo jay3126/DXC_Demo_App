@@ -5,6 +5,19 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=items_list_#{DateTime.now}.xlsx"
+      }
+      format.html { render :index }
+      format.csv { send_data @items.to_csv, filename: "items_list_#{DateTime.now}.csv"}
+      format.pdf do
+        pdf = GeneratePdf.new(@items)
+        send_data pdf.render, filename: "items_list_#{DateTime.now}.pdf", type: "application/pdf"
+      end
+    end
   end
 
   # GET /items/1

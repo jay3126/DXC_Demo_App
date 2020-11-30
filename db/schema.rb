@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2020_11_11_195546) do
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "items_imports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "items_imports", force: :cascade do |t|
     t.string "file_name"
     t.string "uploaded_by"
     t.datetime "uploaded_at"
@@ -28,13 +31,13 @@ ActiveRecord::Schema.define(version: 2020_11_11_195546) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "people", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_195546) do
     t.boolean "isDeleted", default: false
   end
 
-  create_table "sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
     t.datetime "created_at", precision: 6, null: false
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_195546) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

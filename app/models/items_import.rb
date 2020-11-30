@@ -1,4 +1,5 @@
-class ItemsImport < ApplicationRecord
+class ItemsImport
+  include ActiveModel::Model
   require 'roo'
   attr_accessor :file
 
@@ -21,10 +22,10 @@ class ItemsImport < ApplicationRecord
 
   def load_imported_items
     spreadsheet = open_spreadsheet
-    header = spreadsheet.row(5)
-    (6..spreadsheet.last_row).map do |i|
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).map do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      item = Item.find_by_id(row["id"]) || Item.new
+      item = Item.find_by_name(row["name"]) || Item.new
       item.attributes = row.to_hash
       item
     end
